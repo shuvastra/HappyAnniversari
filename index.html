@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Happy Anniversary 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg1: #1b1235;
+      --bg2: #42275a;
+      --accent: #ff6fb1;
+      --accent-soft: rgba(255, 111, 177, 0.25);
+      --card-bg: rgba(9, 9, 23, 0.75);
+      --text-main: #ffffff;
+      --text-soft: #e9dcff;
+      --gold: #ffd46f;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.4);
+      --radius-xl: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #ff9a9e 0, #1b1235 52%, #000 100%);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      min-height: 100vh;
+      padding: 16px 10px;
+    }
+
+    /* "Phone" wrapper for mobile look */
+    .phone {
+      width: 100%;
+      max-width: 480px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+      border-radius: 32px;
+      padding: 14px 10px;
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.06),
+        0 30px 80px rgba(0, 0, 0, 0.75);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .phone-inner {
+      background: radial-gradient(circle at top left, #44295f 0, #0b0618 55%, #05020d 100%);
+      border-radius: 26px;
+      padding: 18px 16px 22px;
+      height: 100%;
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+
+    .phone-inner::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Floating background orbs */
+    .orb {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(30px);
+      opacity: 0.6;
+      z-index: -1;
+      animation: orbMove 16s ease-in-out infinite alternate;
+    }
+
+    .orb.orb-1 {
+      width: 220px;
+      height: 220px;
+      background: #ff9a9e;
+      top: -40px;
+      right: -40px;
+    }
+
+    .orb.orb-2 {
+      width: 260px;
+      height: 260px;
+      background: #b721ff;
+      bottom: -60px;
+      left: -60px;
+      animation-delay: -5s;
+    }
+
+    @keyframes orbMove {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+
+      to {
+        transform: translate3d(10px, -24px, 0) scale(1.06);
+      }
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 18px;
+      position: relative;
+    }
+
+    .tiny-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 212, 111, 0.4);
+      margin-bottom: 6px;
+    }
+
+    .tiny-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--gold);
+      box-shadow: 0 0 10px rgba(255, 212, 111, 0.9);
+    }
+
+    .main-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 5px 0 4px;
+      letter-spacing: 0.01em;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+      min-height: 28px;
+      /* for typewriter effect */
+      white-space: normal;
+    }
+
+    .sub-title {
+      font-size: 13px;
+      color: var(--text-soft);
+      opacity: 0.86;
+      margin: 0;
+    }
+
+    .date-pill {
+      margin-top: 8px;
+      font-size: 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .date-pill span {
+      opacity: 0.9;
+    }
+
+    .date-pill .heart {
+      animation: pulse 1.6s ease-in-out infinite;
+      font-size: 12px;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.35);
+      }
+    }
+
+    /* Hero photo */
+    .hero-card {
+      position: relative;
+      margin-bottom: 18px;
+      animation: fadeUp 0.7s ease-out both;
+    }
+
+    .hero-ring {
+      position: absolute;
+      inset: -12px -12px auto;
+      border-radius: 26px;
+      background: conic-gradient(from 120deg, #ffd46f, #ff6fb1, #9b5cff, #ffd46f);
+      opacity: 0.75;
+      filter: blur(6px);
+      z-index: 0;
+      transform: scale(1.02);
+    }
+
+    .hero-photo-wrapper {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      z-index: 1;
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform 5s ease-out;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(5, 2, 13, 0.82), rgba(5, 2, 13, 0.15));
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding: 14px 14px 10px;
+    }
+
+    .hero-names {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .hero-names span {
+      color: var(--gold);
+    }
+
+    .hero-years {
+      font-size: 11px;
+      text-align: right;
+      opacity: 0.95;
+    }
+
+    .hero-years strong {
+      font-size: 13px;
+      color: var(--gold);
+    }
+
+    /* Generic card */
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-xl);
+      padding: 14px 13px 13px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      margin-bottom: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.14), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.6s ease-out;
+      pointer-events: none;
+    }
+
+    .card:hover::before {
+      opacity: 0.8;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      gap: 8px;
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card-title-emoji {
+      font-size: 15px;
+    }
+
+    .card-tag {
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(0, 0, 0, 0.25);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      opacity: 0.9;
+    }
+
+    .card-body {
+      font-size: 12px;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    .highlight {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .signature {
+      margin-top: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    /* Timeline */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .timeline-dot-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 2px;
+    }
+
+    .timeline-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 15px rgba(255, 111, 177, 0.9);
+    }
+
+    .timeline-line {
+      flex: 1;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--accent-soft), transparent 75%);
+      margin-top: 3px;
+    }
+
+    .timeline-content {
+      flex: 1;
+    }
+
+    .timeline-year {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 1px;
+    }
+
+    .timeline-text {
+      font-size: 12px;
+      color: var(--text-soft);
+      opacity: 0.92;
+    }
+
+    /* Gallery carousel */
+    .gallery {
+      position: relative;
+      margin-top: 4px;
+    }
+
+    .gallery-main {
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+    }
+
+    .gallery-main img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: none;
+      transition: transform 0.6s ease-out, opacity 0.4s ease-out;
+      opacity: 0;
+    }
+
+    .gallery-main img.active {
+      display: block;
+      opacity: 1;
+      transform: scale(1.02);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 8px 10px;
+      background: linear-gradient(to top, rgba(5, 2, 15, 0.92), transparent);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+    }
+
+    .gallery-count {
+      opacity: 0.85;
+    }
+
+    .gallery-buttons {
+      display: flex;
+      gap: 6px;
+    }
+
+    .circle-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      background: rgba(0, 0, 0, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+    }
+
+    .circle-btn:active {
+      transform: scale(0.92);
+    }
+
+    .gallery-dots {
+      display: flex;
+      justify-content: center;
+      gap: 4px;
+      margin-top: 8px;
+    }
+
+    .gallery-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .gallery-dot.active {
+      width: 10px;
+      background: var(--accent);
+    }
+
+    /* Promise list */
+    .promises {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .promise-pill {
+      padding: 7px 8px;
+      font-size: 11px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .promise-pill span {
+      font-size: 12px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: 10px;
+      padding-bottom: 2px;
+    }
+
+    .made-with {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .made-with .heart {
+      animation: pulse 1.6s ease-in-out infinite;
+    }
+
+    /* Tap hearts */
+    .tap-heart {
+      position: fixed;
+      pointer-events: none;
+      font-size: 20px;
+      animation: floatUp 1.8s ease-out forwards;
+      z-index: 999;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translate3d(-50%, -10px, 0) scale(0.9);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translate3d(-50%, -80px, 0) scale(1.3);
+        opacity: 0;
+      }
+    }
+
+    /* Fade-in animation for sections */
+    .section-animated {
+      animation: fadeUp 0.8s ease-out both;
+    }
+
+    .section-2 {
+      animation-delay: 0.2s;
+    }
+
+    .section-3 {
+      animation-delay: 0.35s;
+    }
+
+    .section-4 {
+      animation-delay: 0.5s;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translate3d(0, 14px, 0);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    /* Very small phones tweak */
+    @media (max-width: 360px) {
+      .hero-photo {
+        height: 190px;
+      }
+
+      .gallery-main img {
+        height: 190px;
+      }
+
+      .main-title {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- SIMPLE INSTRUCTIONS:
+       1) Replace names & date in the HTML text below with your uncle & aunt details.
+       2) Put your images in an "images" folder next to this file and change src="images/pic1.jpg" etc.
+       3) Open this file on your phone browser and enjoy 🥰
+  -->
+  <div class="phone">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <div class="phone-inner">
+      <header>
+        <div class="tiny-label">
+          <div class="tiny-dot"></div>
+          <span>Anniversary Special</span>
+        </div>
+        <h1 class="main-title" data-text="Happy Anniversary, Dear Uncle & Aunt!"></h1>
+        <p class="sub-title">
+          Celebrating your beautiful journey of love, laughter & togetherness.
+        </p>
+        <div class="date-pill">
+          <span class="heart">❤️</span>
+          <span>06 December 2025</span>
+        </div>
+      </header>
+
+      <!-- Hero Photo -->
+      <section class="hero-card">
+        <div class="hero-ring"></div>
+        <div class="hero-photo-wrapper">
+          <!-- MAIN HERO IMAGE (replace with your favourite couple photo) -->
+          <img src="1.png" alt="Happy Couple" class="hero-photo" />
+          <div class="hero-overlay">
+            <div class="hero-names">
+              <!-- REPLACE NAMES HERE -->
+              To <span>My Lovely Uncle & Aunt</span>
+            </div>
+            <div class="hero-years">
+              <!-- You can write the number of years here -->
+              Together forever ✨
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Love Letter -->
+      <section class="card section-animated section-2">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="card-title-emoji">💌</span>
+            <span>A Little Letter From Me</span>
+          </div>
+          <div class="card-tag">From the heart</div>
+        </div>
+        <div class="card-body">
+          Dear <span class="highlight">Uncle & Aunt</span>,<br /><br />
+          Aaj aap dono ki anniversary hai, to main kaise chup reh sakta hoon 😄
+          Thank you so much hamesha humein yeh dikhane ke liye ki
+          <span class="highlight">real life ka true love</span> actually hota kya hai –
+          thodi nok-jhok, thodi masti, aur bahut saara pyaar 💑<br /><br />
+
+          Aap dono ke smiles, aapke cute se fights, aur ek dusre ka care karna –
+          sab kuch dekh ke dil khush ho jaata hai ❤️
+          Bhagwan kare aapka bond aur bhi strong hota rahe,
+          aapki hasi kabhi kam na ho, aur aap dono aise hi ek dusre ka saath dete raho
+          jiwan bhar aur saato janam ✨<br /><br />
+
+          Aur haan… <span class="highlight">apna aashirwaad humesha banaye rakhiyega</span> 🙏
+          Main sach me lucky hoon jo aap jaise Uncle & Aunt mile hain 💖
+
+          <div class="signature">
+            With lots of love,<br />
+            Your loving Shubham (aapka pyara monty/bunty)🫶
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Timeline -->
+      <section class="card section-animated section-3">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="card-title-emoji">📖</span>
+            <span>A Few Magical Moments</span>
+          </div>
+          <div class="card-tag">Your love story</div>
+        </div>
+        <div class="card-body">
+          <div class="timeline">
+
+            <div class="timeline-item">
+              <div class="timeline-dot-wrap">
+                <div class="timeline-dot"></div>
+                <div class="timeline-line"></div>
+              </div>
+              <div class="timeline-content">
+                <div class="timeline-year">Day 1</div>
+                <div class="timeline-text">
+                  Jis din aap dono mile aur zindagi bhar ka saath pakadne ka promise kiya 💍
+                  Usi din se ek sundar, pyaari si love story shuru ho gayi ❤️
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot-wrap">
+                <div class="timeline-dot"></div>
+                <div class="timeline-line"></div>
+              </div>
+              <div class="timeline-content">
+                <div class="timeline-year">All These Years</div>
+                <div class="timeline-text">
+                  Kabhi hasi, kabhi nok-jhok 😄
+                  Par har attitude ke peeche sirf pyaar hi pyaar tha 💑
+                  Har mushkil ko aap dono ne saath milke asaan bana diya ✨
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-dot-wrap">
+                <div class="timeline-dot"></div>
+              </div>
+              <div class="timeline-content">
+                <div class="timeline-year">Today & Always</div>
+                <div class="timeline-text">
+                  Aaj bhi aap dono ek dusre ko roz choose karte ho ❤️
+                  Aur bas aise hi hamesha saath rehna,
+                  smile karna, ladna, manana aur pyaar karte rehna hamesha ✨
+                  Aap dono ka pyaar saccha hai, aur humein aap par bahut garv hai 💖
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Photo Gallery Carousel -->
+      <section class="card section-animated section-4">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="card-title-emoji">📸</span>
+            <span>Our Favourite Moments</span>
+          </div>
+          <div class="card-tag">Swipe & smile</div>
+        </div>
+        <div class="card-body">
+          <div class="gallery" id="gallery">
+            <div class="gallery-main">
+              <!-- ADD/REPLACE YOUR 5–6 PHOTOS HERE -->
+              <img src="1st.png" alt="Memory 1" class="active" />
+              <img src="1.png" alt="Memory 2" />
+              <img src="2nd.png" alt="Memory 3" />
+              <img src="2.png" alt="Memory 4" />
+              <img src="5th.png" alt="Memory 5" />
+              <img src="6.png" alt="Memory 5" />
+              <img src="4thh.png" alt="Memory 5" />
+              <img src="4.png" alt="Memory 5" />
+              <img src="3rd.png" alt="Memory 5" />
+              <img src="first.png" alt="Memory 5" />
+              <img src="4th.png" alt="Memory 5" />
+              <!-- If you have more, just copy one more line: <img src="images/pic6.jpg" alt="Memory 6" /> -->
+
+              <div class="gallery-overlay">
+                <div class="gallery-count" id="galleryCount">
+                  1 / 5
+                </div>
+                <div class="gallery-buttons">
+                  <div class="circle-btn" id="prevBtn">‹</div>
+                  <div class="circle-btn" id="nextBtn">›</div>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-dots" id="galleryDots"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cute Promises -->
+      <section class="card section-animated">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="card-title-emoji">🤍</span>
+            <span>My Wishes For You</span>
+          </div>
+          <div class="card-tag">Forever & always</div>
+        </div>
+        <div class="card-body">
+          <div class="promises">
+            <div class="promise-pill">
+              <span>🌙</span>
+              <span>Endless late-night talks</span>
+            </div>
+            <div class="promise-pill">
+              <span>😂</span>
+              <span>Laughs louder than fights</span>
+            </div>
+            <div class="promise-pill">
+              <span>✈️</span>
+              <span>More trips together</span>
+            </div>
+            <div class="promise-pill">
+              <span>💑</span>
+              <span>Hand-in-hand forever</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="made-with">
+          Made with <span class="heart">💖</span> just for you
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // TYPEWRITER EFFECT FOR MAIN TITLE
+    (function () {
+      const titleEl = document.querySelector(".main-title");
+      const fullText = titleEl.getAttribute("data-text") || titleEl.textContent;
+      titleEl.textContent = "";
+      let i = 0;
+
+      function type() {
+        if (i <= fullText.length) {
+          titleEl.textContent = fullText.slice(0, i);
+          i++;
+          setTimeout(type, 70);
+        }
+      }
+
+      window.addEventListener("load", () => {
+        setTimeout(type, 400);
+      });
+    })();
+
+    // SIMPLE GALLERY CAROUSEL (with swipe support)
+    (function () {
+      const gallery = document.getElementById("gallery");
+      const images = gallery.querySelectorAll("img");
+      const countEl = document.getElementById("galleryCount");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const dotsWrap = document.getElementById("galleryDots");
+
+      let currentIndex = 0;
+      const total = images.length;
+
+      // Create dots
+      const dots = [];
+      images.forEach((_, idx) => {
+        const dot = document.createElement("div");
+        dot.className = "gallery-dot" + (idx === 0 ? " active" : "");
+        dot.dataset.index = idx;
+        dotsWrap.appendChild(dot);
+        dots.push(dot);
+        dot.addEventListener("click", () => {
+          goToSlide(idx);
+        });
+      });
+
+      function updateCount() {
+        countEl.textContent = (currentIndex + 1) + " / " + total;
+      }
+
+      function goToSlide(index) {
+        images[currentIndex].classList.remove("active");
+        dots[currentIndex].classList.remove("active");
+        currentIndex = (index + total) % total;
+        images[currentIndex].classList.add("active");
+        dots[currentIndex].classList.add("active");
+        updateCount();
+      }
+
+      function next() {
+        goToSlide(currentIndex + 1);
+      }
+
+      function prev() {
+        goToSlide(currentIndex - 1);
+      }
+
+      nextBtn.addEventListener("click", next);
+      prevBtn.addEventListener("click", prev);
+
+      // Swipe handling
+      let startX = null;
+
+      gallery.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+      });
+
+      gallery.addEventListener("touchend", (e) => {
+        if (startX === null) return;
+        const endX = e.changedTouches[0].clientX;
+        const diff = endX - startX;
+        if (Math.abs(diff) > 40) {
+          if (diff < 0) next();
+          else prev();
+        }
+        startX = null;
+      });
+
+      updateCount();
+    })();
+
+    // TAP TO SPAWN FLOATING HEARTS
+    (function () {
+      function createHeart(x, y) {
+        const heart = document.createElement("div");
+        heart.className = "tap-heart";
+        heart.textContent = "💗";
+        heart.style.left = x + "px";
+        heart.style.top = y + "px";
+        document.body.appendChild(heart);
+        setTimeout(() => {
+          heart.remove();
+        }, 1800);
+      }
+
+      document.addEventListener("click", (e) => {
+        // avoid tap on buttons (but still show sometimes near them)
+        createHeart(e.clientX, e.clientY);
+      });
+    })();
+
+    // Slow zoom for hero image for a cinematic feel
+    (function () {
+      const heroImg = document.querySelector(".hero-photo");
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          heroImg.style.transform = "scale(1.07)";
+        }, 800);
+      });
+    })();
+  </script>
+</body>
+
+</html>
